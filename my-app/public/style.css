@@ -1,5 +1,5 @@
 navbar {
-    background-color: #8bc34a;
+    background-color: #053aaa;
     position: absolute;
     right: 0;
     left: 0;
@@ -13,7 +13,7 @@ navbar i {
     transition: transform 1s;
 }
 navbar i:hover {
-    background-color: #72a03d;
+    background-color: #053aaa;
     border-radius: 26px;
     transform: rotate(360deg);
 }

@@ -8,53 +8,61 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
 });
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(ID, Name, Time) {
+  return { ID, Name, Time};
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData(1,'member 1', '1 hr'),
+  createData(2,'member 2', '2 hr'),
+  createData(3,'member 3', '3 hr'),
+  createData(4,'member 4', '4 hr'),
+  createData(5,'member 5', '5 hr'),
 ];
 
-export default function SimpleTable() {
+function SimpleTable (){
   const classes = useStyles();
-
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell align="right">ID</TableCell>
+            <TableCell align="right">Name</TableCell>
+            <TableCell align="right">Time</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.ID}</TableCell>
+              <TableCell align="right">{row.Name}</TableCell>
+              <TableCell align="right">{row.Time}</TableCell>
+          <button type="button" onClick="DeleteRecord" class="btn btn-danger">Delete</button>
+              <button type="button" onClick="EditRecord" class="btn btn-primary">Edit</button>
+              
             </TableRow>
           ))}
         </TableBody>
       </Table>
+      <button type="button" onClick="EditRecord" class="btn btn-primary">Add</button>
+      <form>
+        <label>
+          Name:
+          <input type="text" value="fsd" />
+        </label>
+        <input type="submit" value="Submit" />
+      
+      </form>
+      
     </TableContainer>
   );
+  
 }
+export default SimpleTable
